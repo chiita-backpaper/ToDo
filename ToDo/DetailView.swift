@@ -9,15 +9,16 @@ import Foundation
 import SwiftUI
 
 struct DetailView: View {
-//    @Environment(\.managedObjectContext) private var context
+    @Environment(\.managedObjectContext) private var context
+    @ObservedObject var task: Task
 //    @Binding var task: Task
 //    @Binding var title: String
 //    @Binding var detail: String
     
     var body: some View {
         Text("DetailView")
-//        Text(title)
-//        Text(detail)
+        Text("\(task.title ?? "")")
+        Text("\(task.detail ?? "")")
                 
         .navigationBarTitle("詳細")
     }

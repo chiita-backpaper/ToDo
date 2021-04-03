@@ -16,17 +16,24 @@ struct ContentView: View {
         entity: Task.entity(),
         sortDescriptors: [NSSortDescriptor(keyPath: \Task.timestamp, ascending: true)],
         predicate: nil
-    )
-    private var tasks: FetchedResults<Task>
+    ) private var tasks: FetchedResults<Task>
     
-//    @State var title: String
-//    @State var detail: String
+//    @State var castedTask: FetchedResults<Task>.Element
+    
+//  知識不足で余計なことをしているかも
+//    @State var title: String = ""
+//    @State var detail: String = ""
+//    @State var task?: FetchedResults<Task>.Element = nil
    
     var body: some View {
         NavigationView {
             /// 取得したデータをリスト表示
             List {
                 ForEach(tasks) { task in
+                    
+//                    title = task.title!
+//                    detail = task.detail!
+                    
                     /// タスクの表示
                         HStack {
                         Image(systemName: task.checked ? "checkmark.circle.fill" : "circle")
@@ -34,9 +41,10 @@ struct ContentView: View {
                                 task.checked.toggle()
                                 try? context.save()
                             }
+                        
                         NavigationLink(destination: DetailView(
 //                            title: title, detail: detail
-//                                        title: task.title, detail: task.detail
+                                        task: task
                         )){
                             Text("\(task.title!)")
                             
