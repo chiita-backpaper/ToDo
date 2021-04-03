@@ -36,6 +36,7 @@ struct AddTaskView: View {
                     newTask.timestamp = Date()
                     newTask.checked = false
                     newTask.title = title
+                    newTask.detail = detail
                     
                     try? context.save()
  

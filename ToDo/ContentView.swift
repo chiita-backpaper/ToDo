@@ -42,14 +42,10 @@ struct ContentView: View {
                                 try? context.save()
                             }
                         
-                        NavigationLink(destination: DetailView(
-//                            title: title, detail: detail
-                                        task: task
-                        )){
+                        NavigationLink(destination: DetailView(task: task)){
                             Text("\(task.title!)")
                             
                         }
-//                            Spacer()
                     }
                     
                     /// タスクをタップでcheckedフラグを変更する
