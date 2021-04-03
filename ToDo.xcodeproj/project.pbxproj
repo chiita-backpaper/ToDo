@@ -7,15 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5211341526183EFB008B4749 /* AddTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5211341426183EFB008B4749 /* AddTaskView.swift */; };
 		521ABB4026160EDA003BAC4B /* ToDoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521ABB3F26160EDA003BAC4B /* ToDoApp.swift */; };
 		521ABB4226160EDA003BAC4B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521ABB4126160EDA003BAC4B /* ContentView.swift */; };
 		521ABB4426160EE3003BAC4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 521ABB4326160EE3003BAC4B /* Assets.xcassets */; };
 		521ABB4726160EE3003BAC4B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 521ABB4626160EE3003BAC4B /* Preview Assets.xcassets */; };
 		521ABB4926160EE3003BAC4B /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521ABB4826160EE3003BAC4B /* Persistence.swift */; };
 		521ABB4C26160EE4003BAC4B /* ToDo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 521ABB4A26160EE3003BAC4B /* ToDo.xcdatamodeld */; };
+		52E2FC532618425A00EA82FF /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E2FC522618425A00EA82FF /* DetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5211341426183EFB008B4749 /* AddTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskView.swift; sourceTree = "<group>"; };
 		521ABB3C26160EDA003BAC4B /* ToDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		521ABB3F26160EDA003BAC4B /* ToDoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoApp.swift; sourceTree = "<group>"; };
 		521ABB4126160EDA003BAC4B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -24,6 +27,7 @@
 		521ABB4826160EE3003BAC4B /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		521ABB4B26160EE3003BAC4B /* ToDo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ToDo.xcdatamodel; sourceTree = "<group>"; };
 		521ABB4D26160EE4003BAC4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52E2FC522618425A00EA82FF /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,8 @@
 			children = (
 				521ABB3F26160EDA003BAC4B /* ToDoApp.swift */,
 				521ABB4126160EDA003BAC4B /* ContentView.swift */,
+				52E2FC522618425A00EA82FF /* DetailView.swift */,
+				5211341426183EFB008B4749 /* AddTaskView.swift */,
 				521ABB4326160EE3003BAC4B /* Assets.xcassets */,
 				521ABB4826160EE3003BAC4B /* Persistence.swift */,
 				521ABB4D26160EE4003BAC4B /* Info.plist */,
@@ -144,6 +150,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5211341526183EFB008B4749 /* AddTaskView.swift in Sources */,
+				52E2FC532618425A00EA82FF /* DetailView.swift in Sources */,
 				521ABB4926160EE3003BAC4B /* Persistence.swift in Sources */,
 				521ABB4226160EDA003BAC4B /* ContentView.swift in Sources */,
 				521ABB4026160EDA003BAC4B /* ToDoApp.swift in Sources */,

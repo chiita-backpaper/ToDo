@@ -7,39 +7,45 @@
 
 import SwiftUI
 import CoreData
- 
+
+
 struct ContentView: View {
- 
     /// 被管理オブジェクトコンテキスト（ManagedObjectContext）の取得
     @Environment(\.managedObjectContext) private var context
- 
-    /// データ取得処理
     @FetchRequest(
         entity: Task.entity(),
         sortDescriptors: [NSSortDescriptor(keyPath: \Task.timestamp, ascending: true)],
         predicate: nil
-    ) private var tasks: FetchedResults<Task>
+    )
+    private var tasks: FetchedResults<Task>
+    
+//    @State var title: String
+//    @State var detail: String
    
     var body: some View {
         NavigationView {
-            
             /// 取得したデータをリスト表示
             List {
                 ForEach(tasks) { task in
-                    
                     /// タスクの表示
-                    HStack {
+                        HStack {
                         Image(systemName: task.checked ? "checkmark.circle.fill" : "circle")
-                        Text("\(task.name!)")
-                        Spacer()
+                            .onTapGesture {
+                                task.checked.toggle()
+                                try? context.save()
+                            }
+                        NavigationLink(destination: DetailView(
+//                            title: title, detail: detail
+//                                        title: task.title, detail: task.detail
+                        )){
+                            Text("\(task.title!)")
+                            
+                        }
+//                            Spacer()
                     }
                     
                     /// タスクをタップでcheckedフラグを変更する
                     .contentShape(Rectangle())
-                    .onTapGesture {
-                        task.checked.toggle()
-                        try? context.save()
-                    }
                 }
                 .onDelete(perform: deleteTasks)
             }
@@ -56,6 +62,7 @@ struct ContentView: View {
                     }
                 }
             }
+            
         }
     }
     
@@ -69,41 +76,9 @@ struct ContentView: View {
     }
 }
  
-/// タスク追加View
-struct AddTaskView: View {
-    @Environment(\.managedObjectContext) private var context
-    @Environment(\.presentationMode) var presentationMode
-    @State private var task = ""
-    
-    var body: some View {
-        Form {
-            Section() {
-                TextField("タスクを入力", text: $task)
-            }
-        }
-        .navigationTitle("タスク追加")
-        .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
-                Button("保存") {
-                    /// タスク新規登録処理
-                    let newTask = Task(context: context)
-                    newTask.timestamp = Date()
-                    newTask.checked = false
-                    newTask.name = task
-                    
-                    try? context.save()
- 
-                    /// 現在のViewを閉じる
-                    presentationMode.wrappedValue.dismiss()
-                }
-            }
-        }
-    }
-}
  
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        ContentView().preferredColorScheme(.dark).environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }
- 
