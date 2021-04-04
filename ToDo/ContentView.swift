@@ -72,12 +72,13 @@ struct ContentView: View {
     
     /// タスクの削除
     /// - Parameter offsets: 要素番号のコレクション
-    func deleteTasks(offsets: IndexSet) {
+    private func deleteTasks(offsets: IndexSet) {
         for index in offsets {
             context.delete(tasks[index])
         }
         try? context.save()
     }
+    
 }
  
  
