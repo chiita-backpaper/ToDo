@@ -83,6 +83,10 @@ struct ContentView: View {
  
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().preferredColorScheme(.dark).environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        ContentView().preferredColorScheme(.light).environment(\.managedObjectContext
+            , PersistenceController.preview.container.viewContext)
+            .environmentObject(Task())
+        
+        
     }
 }

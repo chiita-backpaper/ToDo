@@ -12,19 +12,39 @@ import SwiftUI
 struct AddTaskView: View {
     @Environment(\.managedObjectContext) private var context
     @Environment(\.presentationMode) var presentationMode
-    @State private var title = ""
-    @State private var detail = ""
+    @State private var title: String = ""
+    @State private var detail: String = ""
+    
     
     var body: some View {
         VStack{
             Form {
-                Section() {
-                    TextField("タスクを入力", text: $title)
+                Section(header: Text("タスク")) {
+                    ZStack(alignment: .topLeading) {
+                        if (title == "") {
+                            Text("タスクを入力").foregroundColor(Color.gray)
+                        }
+                        TextField("", text: $title)
+                        }
+                }
+                Section(header: Text("詳細")){
+                ZStack(alignment: .topLeading) {
+                        if (detail == "") {
+                            Text("詳細を入力").foregroundColor(Color.gray)
+                        }
+                        TextEditor(text: $detail)
+        //                    .foregroundColor(Color.gray)
+        //                    .font(.custom("HelveticaNeue", size: 13))
+        //                    .lineSpacing(
+        //
+        //                    .padding()
+        //                    .foregroundColor(Color.gray)
+        //                    .font(.subheadline)
+                    }
                 }
             }
-            TextEditor(text: $detail)
-                       .padding()
-                       .font(.subheadline)
+            
+//            Spacer()
             
         }
         .navigationTitle("タスク追加")

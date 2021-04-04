@@ -13,9 +13,11 @@ struct DetailView: View {
     @ObservedObject var task: Task
     
     var body: some View {
-        Text("\(task.title ?? "")")
-        Text("\(task.detail ?? "")")
-                
-        .navigationBarTitle("詳細")
+        VStack() {
+            Text("\(task.detail ?? "")")
+                .frame(width: 280, alignment: .leading)
+        }
+        Spacer()
+        .navigationBarTitle(Text("\(task.title ?? "")"))
     }
 }

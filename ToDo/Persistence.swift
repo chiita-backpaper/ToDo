@@ -17,7 +17,7 @@ struct PersistenceController {
         let newTask = Task(context: viewContext)
         newTask.timestamp = Date()
         newTask.checked = false
-        newTask.detail = "DetailViewの詳細入力を綺麗にする．"
+        newTask.detail = "DetailViewの詳細入力を綺麗にする.\nタスク詳細画面を綺麗にする．"
         newTask.title = "初期タスク"
  
         do {
